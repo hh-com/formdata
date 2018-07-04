@@ -2,6 +2,8 @@
 
 Save all frontend form fields in the database.
 
+Tested in Contao 3
+
 ## Installation
 
 * Download
