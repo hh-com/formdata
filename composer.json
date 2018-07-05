@@ -1,7 +1,6 @@
 {
     "name": "hh-com/formdata",
     "description": "Save all frontend form fields in the database.",
-    "minimum-stability": "dev",
     "keywords": ["contao", "form", "formfields", "formdata"],
     "type": "contao-module",
     "license": "LGPL-3.0-or-later",
