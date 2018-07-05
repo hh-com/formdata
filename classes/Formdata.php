@@ -25,7 +25,7 @@ class Formdata extends \Controller
 
 		\Database::getInstance()->prepare("INSERT INTO tl_formdata %s")->set( $set )->execute();
 
-	} 
+	}
 
 }
 ?>
