@@ -2,6 +2,7 @@
 class Formdata extends \Controller
 {
 
+	
 	/* Catch the formdata and save it in tl_formdata */
 	public function catchAndSaveFormData($arrPost, $arrForm, $arrFiles)
 	{
