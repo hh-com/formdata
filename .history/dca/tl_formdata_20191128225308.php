@@ -38,7 +38,7 @@ $GLOBALS['TL_DCA']['tl_formdata'] = array
 			'mode'                    => 1,
 			'fields'                  => array('form_id DESC', 'id DESC'),
 			'flag'                    => 1,
-            'panelLayout'             => 'filter,search,limit',
+            'panelLayout'             => 'sort,search,limit',
 		),
 		'label' => array
 		(
@@ -93,12 +93,11 @@ $GLOBALS['TL_DCA']['tl_formdata'] = array
 			'filter'                  => true,
 			'inputType'               => 'text',
 			'eval'                    => array('maxlength'=>255, 'tl_class'=>'w50'),
-			'options_callback'        => array('tl_formdata', 'formNames'),
 			'sql'                     => "varchar(255) NOT NULL default ''"
 		),
 		'formvalues' => array
 		(
-			'label'                   => &$GLOBALS['TL_LANG']['tl_formdata']['formvalues'],
+			'label'                   => &$GLOBALS['TL_LANG']['mm_training']['formvalues'],
 			'exclude'                 => true,
 			'search'                  => true,
 			'inputType'               => 'text',
@@ -149,27 +148,6 @@ class tl_formdata extends Backend
 		{
 			return "";
 		}
-	}
-
-	/* Get the formular name */
-	public function formNames($dc)
-	{	
-		$forms = array();
-		
-		$result = $this->Database->prepare("SELECT * FROM tl_form ")->execute();
-		
-		if ($result->numRows > 0)
-		{
-			$arr = $result->fetchAllAssoc();	
-			foreach ($arr AS $k => $v ) {
-				$forms[$v['id']] = $v['title'];
-			}
-			return $forms;
-		}
-		return "";
-		
-		
-		
 	}
 	
 
