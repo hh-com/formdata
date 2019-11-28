@@ -6,7 +6,7 @@
 $GLOBALS['TL_DCA']['tl_formdata'] = array
 (
 
-	// Config
+	// Config 
 	'config' => array
 	(
 		'dataContainer'               => 'Table',
