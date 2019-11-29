@@ -118,15 +118,15 @@ class tl_formdata extends Backend
 	{
 		$values = "";
 
-		foreach (deserialize($dc[formvalues]) AS $k => $v)
+		foreach (deserialize($dc['formvalues']) AS $k => $v)
 		{
 			$values .= " <strong>".$k."</strong>: " . $v . "<br>";
 		}
 
 		$layout = "
 		<div>
-			<span style='color:#000;padding-right:3px; width: 30px;'>id: ".$dc[id]."</span>
-			<span style='color:#b3b3b3;padding-right:3px; width: 60px;'>[".date("d.m.Y H:i", $dc[tstamp])."]</span><br>
+			<span style='color:#000;padding-right:3px; width: 30px;'>id: ".$dc['id']."</span>
+			<span style='color:#b3b3b3;padding-right:3px; width: 60px;'>[".date("d.m.Y H:i", $dc['tstamp'])."]</span><br>
 			<span style='color:#000;padding:7px 33px;display:inline-block;'>".$values."</span>
 		</div>
 		
