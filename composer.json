@@ -1,28 +1,21 @@
 {
-    "name": "hh-com/formdata",
-    "description": "Save all frontend form fields in the database.",
-    "keywords": ["contao", "form", "formfields", "formdata"],
-    "type": "contao-module",
-    "license": "LGPL-3.0-or-later",
-    "authors": [
-        {
-            "name": "hh-com"
-        }
-    ],
-    "require": {
-        "php": "^7.2 || ^8.0",
-        "contao/core-bundle": "^4.9 || ^5.0"
+    "name":"hh-com/contao-formdata",
+    "description":"Contao 5 - Save form submitted forms serialized in database",
+    "type":"contao-bundle",
+    "license":"LGPL-3.0-or-later",
+    "require":{
+        "php": "^8.0",
+        "contao/core-bundle": "^4.12 || ^5.0"
+    },
+    "require-dev": {
+        "contao/manager-plugin": "<2.0 || >=3.0"
     },
     "autoload": {
-        "classmap": [
-            "classes/"
-        ]
+        "psr-4": {
+			"Hhcom\\ContaoFormdataBundle\\": "src/"
+        }
     },
     "extra": {
-        "contao": {
-            "sources": {
-                "": "system/modules/formdata"
-            }
-        }
+		"contao-manager-plugin": "Hhcom\\ContaoFormdataBundle\\ContaoManager\\Plugin"
     }
 }

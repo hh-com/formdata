@@ -6,20 +6,18 @@
 $GLOBALS['TL_DCA']['tl_formdata'] = array
 (
 
-	// Config 
+	// Config
 	'config' => array
 	(
-		'dataContainer'               => 'Table',
+		'dataContainer'               => Contao\DC_Table::class,
 		'closed'                      => true,
 		'notEditable'                 => true,
 		'notCopyable'                 => true,
 		'onload_callback' => array
 		(
-			#array('tl_formdata', 'xy'),
 		),
 		'onsubmit_callback' => array
 		(
-			#array('tl_formdata', 'xy')
 		),
 		'sql' => array
 		(
@@ -38,12 +36,12 @@ $GLOBALS['TL_DCA']['tl_formdata'] = array
 			'mode'                    => 1,
 			'fields'                  => array('form_id DESC', 'id DESC'),
 			'flag'                    => 1,
-            'panelLayout'             => 'filter,search,limit',
+            'panelLayout'             => 'filter,limit',
 		),
 		'label' => array
 		(
 			'fields'                  => array('id', 'tstamp', 'form_id'),
-			
+
             'label_callback'          => array('tl_formdata', 'labelLaoyut'),
             'group_callback'          => array('tl_formdata', 'groupName')
 		),
@@ -92,33 +90,33 @@ $GLOBALS['TL_DCA']['tl_formdata'] = array
 			'exclude'                 => true,
 			'filter'                  => true,
 			'inputType'               => 'text',
-			'eval'                    => array('maxlength'=>255, 'tl_class'=>'w50'),
 			'options_callback'        => array('tl_formdata', 'formNames'),
+			'eval'                    => array('maxlength'=>255, 'tl_class'=>'w50'),
 			'sql'                     => "varchar(255) NOT NULL default ''"
 		),
 		'formvalues' => array
 		(
-			'label'                   => &$GLOBALS['TL_LANG']['tl_formdata']['formvalues'],
+			'label'                   => &$GLOBALS['TL_LANG']['mm_training']['formvalues'],
 			'exclude'                 => true,
-			'search'                  => true,
+			'search'                  => false,
 			'inputType'               => 'text',
 			'eval'                    => array('maxlength'=>255, 'tl_class'=>'clr w50', 'readonly'=> true),
 			'sql'                     => "blob NULL"
 		),
-        
+
 	)
 );
 
 
-class tl_formdata extends Backend
+class tl_formdata extends Contao\Backend
 {
-	
+
 	/* Get the formular values */
 	public function labelLaoyut($dc)
 	{
 		$values = "";
 
-		foreach (deserialize($dc['formvalues']) AS $k => $v)
+		foreach (Contao\StringUtil::deserialize($dc['formvalues']) AS $k => $v)
 		{
 			$values .= " <strong>".$k."</strong>: " . $v . "<br>";
 		}
@@ -129,17 +127,17 @@ class tl_formdata extends Backend
 			<span style='color:#b3b3b3;padding-right:3px; width: 60px;'>[".date("d.m.Y H:i", $dc['tstamp'])."]</span><br>
 			<span style='color:#000;padding:7px 33px;display:inline-block;'>".$values."</span>
 		</div>
-		
+
 		";
-		
+
 		return $layout;
-		
+
 	}
 	/* Get the formular name */
 	public function groupName($dc)
 	{
-		$result = $this->Database->prepare("SELECT * FROM tl_form where id=?")->execute( (int) $dc);
-		
+		$result = Contao\Database::getInstance()->prepare("SELECT * FROM tl_form where id=?")->execute( (int) $dc);
+
 		if ($result->numRows > 0)
 		{
 			$arr = $result->row();
@@ -156,7 +154,7 @@ class tl_formdata extends Backend
 	{	
 		$forms = array();
 		
-		$result = $this->Database->prepare("SELECT * FROM tl_form ")->execute();
+		$result =  Contao\Database::getInstance()->prepare("SELECT * FROM tl_form ")->execute();
 		
 		if ($result->numRows > 0)
 		{
@@ -171,8 +169,5 @@ class tl_formdata extends Backend
 		
 		
 	}
-	
 
-	
 }
-

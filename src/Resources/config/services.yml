@@ -1,0 +1,6 @@
+services:
+    Hhcom\ContaoFormdataBundle\EventListener\ProcessFormDataListener:
+        arguments:
+            - "@contao.framework"
+        tags:
+            - { name: contao.hook, hook: processFormData }

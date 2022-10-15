@@ -3,7 +3,7 @@
 /**
  * Backend modules
  */
-array_insert($GLOBALS['BE_MOD'], 1, array(
+Contao\ArrayUtil::arrayInsert($GLOBALS['BE_MOD'], 1, array(
     'system' => array(
 		'formdata' => array
 		(
@@ -12,9 +12,6 @@ array_insert($GLOBALS['BE_MOD'], 1, array(
 		)
     )
 ));
-
-/* Catch the form and save in DB */
-$GLOBALS['TL_HOOKS']['processFormData'][] = array('Formdata', 'catchAndSaveFormData');
 
 
 ?>
