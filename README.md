@@ -1,6 +1,6 @@
 # Contao formdata
 
-Save all frontend form fields in the database.
+Save all frontend form fields in the database..
 
 Tested in Contao 3 and Contao 4.4
 
