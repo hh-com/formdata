@@ -30,8 +30,6 @@ class ProcessFormDataListener
 			}
 		}
 
-		dump($submittedData);
-
 		$set = array (
 			'tstamp' => time(),
 			'form_id' => $formData['id'],
