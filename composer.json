@@ -1,11 +1,11 @@
 {
-    "name":"hh-com/contao-formdata",
+    "name":"hh-com/formdata", 
     "description":"Contao 5 - Save form submitted forms serialized in database",
     "type":"contao-bundle",
     "license":"LGPL-3.0-or-later",
     "require":{
         "php": "^8.0",
-        "contao/core-bundle": "^4.12 || ^5.0"
+        "contao/core-bundle": "^5.3"
     },
     "require-dev": {
         "contao/manager-plugin": "<2.0 || >=3.0"
@@ -14,6 +14,7 @@
         "psr-4": {
 			"Hhcom\\ContaoFormdataBundle\\": "src/"
         }
+       
     },
     "extra": {
 		"contao-manager-plugin": "Hhcom\\ContaoFormdataBundle\\ContaoManager\\Plugin"

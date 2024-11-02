@@ -16,4 +16,5 @@ $GLOBALS['TL_DCA']['tl_form']['fields']['saveInDatabase'] = array
 	'sql'                     => "char(1) NOT NULL default ''"
 );
 
+
 ?>

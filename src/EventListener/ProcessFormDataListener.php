@@ -14,9 +14,7 @@ use Contao\CoreBundle\ServiceAnnotation\Hook;
 use Contao\Form;
 use Contao\Database;
 
-/**
- * @Hook("processFormData")
- */
+
 class ProcessFormDataListener
 {
     public function __invoke(array $submittedData, array $formData, ?array $files, array $labels, Form $form): void
@@ -31,6 +29,8 @@ class ProcessFormDataListener
 				$submittedData[$k] = implode(", ", $v);
 			}
 		}
+
+		dump($submittedData);
 
 		$set = array (
 			'tstamp' => time(),
